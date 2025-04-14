@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dannza Bella - Contacto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-50 text-gray-800">
+  
+<nav class="bg-purple-800 text-white p-4 flex justify-between items-center">
+    <div class="text-2xl font-bold">Dannza Bella</div>
+    <ul class="flex space-x-4 text-lg">
+        <li><a href="index.html" class="hover:underline">Inicio</a></li>
+        <li><a href="cursos.html" class="hover:underline">Cursos</a></li>
+        <li><a href="galeria.html" class="hover:underline">Galería</a></li>
+        <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
+    </ul>
+</nav>
+
+  <main class="p-6">
+    <h2 class="text-3xl font-bold text-purple-800 mb-6 text-center">Contáctanos</h2>
+    <div class="max-w-xl mx-auto bg-white rounded shadow p-6">
+      <p class="mb-4">Estamos en: <strong>Calle Ficticia 123, Madrid</strong></p>
+      <p class="mb-4">Teléfono: <a href="tel:+34123456789" class="text-blue-600 underline">+34 123 456 789</a></p>
+      <div class="mb-4">
+        <iframe class="w-full h-64 rounded" src="https://maps.google.com/maps?q=Madrid&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+      </div>
+      <p class="text-sm text-gray-600 italic">También puedes escribirnos a través del chatbot en la esquina inferior.</p>
+    </div>
+  </main>
+
+  <!-- Chatbot Burbuja -->
+  <div id="chatbot" class="fixed bottom-4 right-4 z-50">
+    <button id="toggleChat" class="bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg">Chat</button>
+    <div id="chatWindow" class="hidden mt-2 bg-white w-72 h-96 rounded shadow-lg p-4">
+      <iframe src="https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat"
+              class="w-full h-full border-0" loading="lazy"></iframe>
+    </div>
+  </div>
+  <script>
+    const toggle = document.getElementById("toggleChat");
+    const chatWindow = document.getElementById("chatWindow");
+    toggle.addEventListener("click", () => {
+      chatWindow.classList.toggle("hidden");
+    });
+  </script>
+
+  
+<footer class="bg-purple-900 text-white text-center py-4 mt-10">
+    &copy; 2025 Dannza Bella. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
