@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escuela de Baile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+  <!-- Cabecera / Presentación -->
+  <header class="bg-white shadow p-6 mb-10">
+    <h1 class="text-3xl font-bold">Escuela de Baile [Nombre]</h1>
+    <p class="mt-2 text-lg text-gray-600">Bienvenidos a nuestra escuela de danza. Conócenos.</p>
+  </header>
+
+  <!-- Galería -->
+  <section id="galeria" class="p-6">
+    <h2 class="text-2xl font-semibold mb-4">Galería de fotos y vídeos</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white h-48 rounded shadow"></div>
+      <div class="bg-white h-48 rounded shadow"></div>
+      <div class="bg-white h-48 rounded shadow"></div>
+      <div class="bg-white h-48 rounded shadow"></div>
+    </div>
+  </section>
+
+  <!-- Cursos y precios -->
+  <section id="cursos" class="p-6">
+    <h2 class="text-2xl font-semibold mb-4">Cursos y precios</h2>
+    <div class="space-y-4">
+      <div class="bg-white p-4 rounded shadow">
+        <h3 class="text-xl font-bold">Salsa</h3>
+        <p>Clase grupal de nivel inicial.</p>
+        <p class="text-sm text-gray-500">50€/mes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="p-6">
+    <h2 class="text-2xl font-semibold mb-4">Contacto</h2>
+    <p>Estamos en Calle Ficticia, 123 - Ciudad</p>
+    <p><a href="tel:+34123456789" class="text-blue-600 underline">Llamar al asistente virtual</a></p>
+    <div class="mt-4">
+      <iframe class="w-full h-64 rounded" src="https://maps.google.com/maps?q=Madrid&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+    </div>
+  </section>
+
+  <!-- Burbuja de Chatbot -->
+  <div id="chatbot" class="fixed bottom-4 right-4">
+    <button id="toggleChat" class="bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg">Chat</button>
+    <div id="chatWindow" class="hidden mt-2 bg-white w-72 h-96 rounded shadow-lg p-4">
+      <p class="text-sm text-gray-700 mb-2">Hola, ¿en qué puedo ayudarte?</p>
+      <!-- Aquí puedes insertar iframe o integración con tu n8n -->
+      <iframe src="https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat" class="w-full h-full border-0" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("toggleChat");
+    const chatWindow = document.getElementById("chatWindow");
+    toggle.addEventListener("click", () => {
+      chatWindow.classList.toggle("hidden");
+    });
+  </script>
+</body>
+</html>
+
