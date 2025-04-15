@@ -62,5 +62,29 @@
   <footer class="bg-purple-900 text-white text-center py-4 mt-10">
     &copy; 2025 Dannza Bella. Todos los derechos reservados.
   </footer>
+
+  <script>
+  document.getElementById('reservaForm').addEventListener('submit', function(e) {
+    const form = e.target;
+    const email = form.email.value.trim();
+    const nombre = form.nombre.value.trim();
+    const evento = form.evento.value;
+    const mensaje = form.mensaje.value.trim();
+
+    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      alert("Por favor, introduce un correo electrónico válido.");
+      e.preventDefault();
+      return;
+    }
+
+    if (!nombre || !email || !evento || !mensaje) {
+      alert("Todos los campos son obligatorios.");
+      e.preventDefault();
+      return;
+    }
+  });
+  </script>
 </body>
 </html>
