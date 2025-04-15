@@ -34,27 +34,31 @@
     <section class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
       <h2 class="text-2xl font-bold text-purple-800 mb-4">Formulario de contacto / Reserva</h2>
       <form id="reservaForm" action="https://curso2025ov.app.n8n.cloud/webhook/reserva_danza" method="POST" class="space-y-4">
-        <div>
-          <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre completo</label>
-          <input type="text" name="nombre" id="nombre" required class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2">
-        </div>
-        <div>
-          <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
-          <input type="email" name="email" id="email" required class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2">
-        </div>
-        <div>
-          <label for="evento" class="block text-sm font-medium text-gray-700">Curso o evento de interés</label>
-          <input type="text" name="evento" id="evento" required class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2">
-        </div>
-        <div>
-          <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje adicional</label>
-          <textarea name="mensaje" id="mensaje" rows="4" class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2"></textarea>
-        </div>
-        <div class="text-center">
-          <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-6 rounded">
-            Enviar
-          </button>
-        </div>
+  <div>
+    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre completo</label>
+    <input type="text" name="nombre" id="nombre" required class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2">
+    <p id="error-nombre" class="hidden text-red-600 text-sm mt-1"></p>
+  </div>
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
+    <input type="email" name="email" id="email" required class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2">
+    <p id="error-email" class="hidden text-red-600 text-sm mt-1"></p>
+  </div>
+  <div>
+    <label for="evento" class="block text-sm font-medium text-gray-700">Curso o evento de interés</label>
+    <input type="text" name="evento" id="evento" required class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2">
+    <p id="error-evento" class="hidden text-red-600 text-sm mt-1"></p>
+  </div>
+  <div>
+    <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje adicional</label>
+    <textarea name="mensaje" id="mensaje" rows="4" required class="mt-1 block w-full rounded border-gray-300 shadow-sm p-2"></textarea>
+    <p id="error-mensaje" class="hidden text-red-600 text-sm mt-1"></p>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-6 rounded">
+      Enviar
+    </button>
+  </div>
       </form>
     </section>
   </main>
@@ -111,5 +115,56 @@
     });
   });
 </script>
+
+  <script>
+  document.getElementById('reservaForm').addEventListener('submit', function (e) {
+    const nombre = document.getElementById('nombre');
+    const email = document.getElementById('email');
+    const evento = document.getElementById('evento');
+    const mensaje = document.getElementById('mensaje');
+
+    let valid = true;
+
+    // Limpiar errores
+    ['nombre', 'email', 'evento', 'mensaje'].forEach(id => {
+      document.getElementById(`error-${id}`).classList.add('hidden');
+    });
+
+    if (!nombre.value.trim()) {
+      mostrarError('nombre', 'El nombre es obligatorio.');
+      valid = false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim()) {
+      mostrarError('email', 'El correo es obligatorio.');
+      valid = false;
+    } else if (!emailRegex.test(email.value.trim())) {
+      mostrarError('email', 'Introduce un correo electrónico válido.');
+      valid = false;
+    }
+
+    if (!evento.value.trim()) {
+      mostrarError('evento', 'El curso o evento es obligatorio.');
+      valid = false;
+    }
+
+    if (!mensaje.value.trim()) {
+      mostrarError('mensaje', 'El mensaje no puede estar vacío.');
+      valid = false;
+    }
+
+    if (!valid) {
+      e.preventDefault();
+    }
+  });
+
+  function mostrarError(id, mensaje) {
+    const errorEl = document.getElementById(`error-${id}`);
+    errorEl.textContent = mensaje;
+    errorEl.classList.remove('hidden');
+  }
+</script>
+  
 </body>
 </html>
