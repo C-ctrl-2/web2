@@ -72,44 +72,56 @@
     const form = document.getElementById('reservaForm');
     const fields = ['nombre', 'email', 'evento', 'mensaje'];
 
-    function showError(input, message) {
-      const error = document.createElement('div');
-      error.className = 'mt-1 text-sm text-red-600 bg-red-100 border border-red-400 p-2 rounded flex items-center';
-      error.innerHTML = `
-        <svg class="w-4 h-4 mr-2 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M12 9v2m0 4h.01M12 12a9 9 0 11-6.364 2.636L3 21l1.707-1.707A9 9 0 0112 3z" />
-        </svg>
-        ${message}`;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function mostrarError(id, mensaje) {
+      const input = document.getElementById(id);
+      const error = document.getElementById(`error-${id}`);
+      error.textContent = mensaje;
+      error.classList.remove('hidden');
       input.classList.add('border-red-400');
-      input.parentNode.appendChild(error);
     }
 
-    function clearErrors() {
-      document.querySelectorAll('.text-red-600').forEach(el => el.remove());
-      document.querySelectorAll('.border-red-400').forEach(el => el.classList.remove('border-red-400'));
+    function limpiarError(id) {
+      const input = document.getElementById(id);
+      const error = document.getElementById(`error-${id}`);
+      error.textContent = '';
+      error.classList.add('hidden');
+      input.classList.remove('border-red-400');
     }
+
+    fields.forEach(id => {
+      const input = document.getElementById(id);
+      input.addEventListener('input', () => {
+        const value = input.value.trim();
+        if (!value) {
+          mostrarError(id, 'Este campo es obligatorio.');
+        } else if (id === 'email' && !emailRegex.test(value)) {
+          mostrarError(id, 'Introduce un correo electrónico válido.');
+        } else {
+          limpiarError(id);
+        }
+      });
+    });
 
     form.addEventListener('submit', function (e) {
-      clearErrors();
-      let hasError = false;
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+      let hayErrores = false;
       fields.forEach(id => {
-        const input = form.querySelector(`[name="${id}"]`);
+        const input = document.getElementById(id);
         const value = input.value.trim();
 
         if (!value) {
-          showError(input, 'Este campo es obligatorio.');
-          hasError = true;
+          mostrarError(id, 'Este campo es obligatorio.');
+          hayErrores = true;
         } else if (id === 'email' && !emailRegex.test(value)) {
-          showError(input, 'Introduce un correo electrónico válido.');
-          hasError = true;
+          mostrarError(id, 'Introduce un correo electrónico válido.');
+          hayErrores = true;
+        } else {
+          limpiarError(id);
         }
       });
 
-      if (hasError) {
+      if (hayErrores) {
         e.preventDefault();
       }
     });
