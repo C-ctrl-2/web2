@@ -90,7 +90,7 @@
       clearErrors();
       let hasError = false;
 
-      const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       fields.forEach(id => {
         const input = form.querySelector(`[name="${id}"]`);
