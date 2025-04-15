@@ -115,56 +115,6 @@
     });
   });
 </script>
-
-  <script>
-  document.getElementById('reservaForm').addEventListener('submit', function (e) {
-    const nombre = document.getElementById('nombre');
-    const email = document.getElementById('email');
-    const evento = document.getElementById('evento');
-    const mensaje = document.getElementById('mensaje');
-
-    let valid = true;
-
-    // Limpiar errores
-    ['nombre', 'email', 'evento', 'mensaje'].forEach(id => {
-      document.getElementById(`error-${id}`).classList.add('hidden');
-    });
-
-    if (!nombre.value.trim()) {
-      mostrarError('nombre', 'El nombre es obligatorio.');
-      valid = false;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.value.trim()) {
-      mostrarError('email', 'El correo es obligatorio.');
-      valid = false;
-    } else if (!emailRegex.test(email.value.trim())) {
-      mostrarError('email', 'Introduce un correo electrónico válido.');
-      valid = false;
-    }
-
-    if (!evento.value.trim()) {
-      mostrarError('evento', 'El curso o evento es obligatorio.');
-      valid = false;
-    }
-
-    if (!mensaje.value.trim()) {
-      mostrarError('mensaje', 'El mensaje no puede estar vacío.');
-      valid = false;
-    }
-
-    if (!valid) {
-      e.preventDefault();
-    }
-  });
-
-  function mostrarError(id, mensaje) {
-    const errorEl = document.getElementById(`error-${id}`);
-    errorEl.textContent = mensaje;
-    errorEl.classList.remove('hidden');
-  }
-</script>
   
 </body>
 </html>
