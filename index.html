@@ -30,5 +30,52 @@
     &copy; 2025 Dannza Bella. Todos los derechos reservados.
 </footer>
 
+    <!-- Estilos y script del chatbot de Dannza Bella -->
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  createChat({
+    webhookUrl: 'https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat',
+    webhookConfig: {
+      method: 'POST',
+      headers: {}
+    },
+    target: '#n8n-chat',
+    mode: 'window', // Puede ser 'embedded' si lo quieres dentro de un div fijo
+    chatInputKey: 'chatInput',
+    chatSessionKey: 'sessionId',
+    metadata: {
+      origen: 'web_dannza'
+    },
+    showWelcomeScreen: false,
+    defaultLanguage: 'es',
+    initialMessages: [
+      '¡Hola! Bienvenida/o a Dannza Bella.',
+      'Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?'
+    ],
+    i18n: {
+      es: {
+        title: '¿Necesitas ayuda?',
+        subtitle: 'Estoy disponible para resolver tus dudas.',
+        footer: '',
+        getStarted: 'Nueva conversación',
+        inputPlaceholder: 'Escribe aquí tu consulta...',
+      },
+    },
+    theme: {
+      color: '#7c3aed', // morado
+      userMessage: {
+        backgroundColor: '#f3e8ff',
+        textColor: '#4c1d95',
+      },
+      botMessage: {
+        backgroundColor: '#ede9fe',
+        textColor: '#1e1b4b',
+      },
+      chatBackground: '#fdf4ff',
+    }
+  });
+</script>
+    
 </body>
 </html>
