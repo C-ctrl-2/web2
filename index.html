@@ -41,11 +41,20 @@
       headers: {}
     },
     target: '#n8n-chat',
-    mode: 'window', // Puede ser 'embedded' si lo quieres dentro de un div fijo
+    mode: 'window',
     chatInputKey: 'chatInput',
     chatSessionKey: 'sessionId',
-    metadata: {
-      origen: 'web_dannza'
+    theme: {
+      color: {
+        primary: '#6B21A8',       // Botón púrpura
+        background: '#F3E8FF',    // Fondo del chat, pastel lila
+        userMessage: '#6B21A8',   // Mensaje del usuario (burbujas)
+        botMessage: '#4C1D95',    // Mensaje del bot (burbujas)
+        header: '#EDE9FE',        // Encabezado
+        footer: '#EDE9FE'         // Pie de input
+      },
+      borderRadius: '1rem', // Esquinas redondeadas
+      fontSize: '16px'
     },
     showWelcomeScreen: false,
     defaultLanguage: 'es',
@@ -59,23 +68,12 @@
         subtitle: 'Estoy disponible para resolver tus dudas.',
         footer: '',
         getStarted: 'Nueva conversación',
-        inputPlaceholder: 'Escribe aquí tu consulta...',
-      },
-    },
-    theme: {
-      color: '#7c3aed', // morado
-      userMessage: {
-        backgroundColor: '#f3e8ff',
-        textColor: '#4c1d95',
-      },
-      botMessage: {
-        backgroundColor: '#ede9fe',
-        textColor: '#1e1b4b',
-      },
-      chatBackground: '#fdf4ff',
+        inputPlaceholder: 'Escribe aquí tu consulta…'
+      }
     }
   });
 </script>
+<div id="n8n-chat"></div>
     
 </body>
 </html>
