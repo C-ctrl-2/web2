@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dannza Bella - Inicio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Estilos base de n8n -->
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-
-  <!-- Estilos personalizados para el chatbot -->
-  <style>
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet">  <style>
+    /* Chatbot fijo en la esquina */
     #n8n-chat {
       position: fixed;
       bottom: 1rem;
@@ -18,47 +13,43 @@
       width: 360px;
       height: 480px;
       z-index: 9999;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      border-radius: 1rem;
     }
 
-    .n8n-chat-messages {
-      overflow-y: auto !important;
-      max-height: 360px !important;
-      padding: 0.5rem !important;
+    /* Estilos internos personalizados */
+    .n8n-chat-window {
+      border-radius: 1rem !important;
+      overflow: hidden !important;
     }
 
     .n8n-message.user {
       background-color: #6b21a8 !important;
       color: white !important;
-      text-align: right !important;
-      margin-left: auto !important;
       border-radius: 1rem !important;
       padding: 8px 14px !important;
+      text-align: right !important;
+      margin-left: auto !important;
       max-width: 75%;
     }
 
     .n8n-message.bot {
       background-color: #4c1d95 !important;
       color: white !important;
-      text-align: left !important;
-      margin-right: auto !important;
       border-radius: 1rem !important;
       padding: 8px 14px !important;
+      text-align: left !important;
+      margin-right: auto !important;
       max-width: 75%;
     }
 
     .n8n-chat-header {
       background-color: #ede9fe !important;
       color: #4c1d95 !important;
-      font-weight: bold;
-      font-size: 16px;
-      padding: 12px;
-      border-radius: 1rem 1rem 0 0 !important;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-weight: bold !important;
+      font-size: 16px !important;
+      padding: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
       gap: 10px;
     }
 
@@ -80,11 +71,8 @@
       color: white !important;
       border-radius: 9999px !important;
     }
-  </style>
-</head>
-
-<body class="bg-pink-50 text-gray-800">
-  <nav class="bg-purple-800 text-white p-4 flex justify-between items-center">
+  </style></head>
+<body class="bg-pink-50 text-gray-800">  <nav class="bg-purple-800 text-white p-4 flex justify-between items-center">
     <div class="text-2xl font-bold">Dannza Bella</div>
     <ul class="flex space-x-4 text-lg">
       <li><a href="index.html" class="hover:underline">Inicio</a></li>
@@ -93,22 +81,15 @@
       <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
       <li><a href="eventos.html" class="hover:underline">Eventos</a></li>
     </ul>
-  </nav>
-
-  <header class="text-center py-10">
-    <img src="logo.jpg" alt="Dannza Bella Logo" class="mx-auto w-32 mb-4" />
+  </nav>  <header class="text-center py-10">
+    <img src="logo.jpg" alt="Dannza Bella Logo" class="mx-auto w-32 mb-4">
     <h1 class="text-4xl font-bold text-purple-800">Bienvenida a Dannza Bella</h1>
     <p class="mt-4 text-xl text-gray-700">
       Academia especializada en cursos de danza para todos los niveles y estilos.
     </p>
-  </header>
-
-  <footer class="bg-purple-900 text-white text-center py-4 mt-10">
+  </header>  <footer class="bg-purple-900 text-white text-center py-4 mt-10">
     &copy; 2025 Dannza Bella. Todos los derechos reservados.
-  </footer>
-
-  <!-- Script del chatbot -->
-  <script type="module">
+  </footer>  <div id="n8n-chat"></div>  <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
     createChat({
@@ -146,9 +127,5 @@
         }
       }
     });
-  </script>
-
-  <!-- Contenedor del chatbot -->
-  <div id="n8n-chat"></div>
-</body>
+  </script></body>
 </html>
