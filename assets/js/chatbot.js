@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Estilos en línea para el chatbot
   const style = document.createElement("style");
   style.innerHTML = `
     :root {
