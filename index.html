@@ -2,63 +2,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <style>
-  /* Contenedor principal del chatbot */
-  .n8n-chat-container {
-    background-color: #f3e8ff !important;
-    border-radius: 1rem !important;
-    font-family: inherit;
-  }
+/* Contenedor general del chat */
+#n8n-chat {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 360px;
+  height: 480px;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border-radius: 1rem;
+}
 
-  /* Encabezado */
-  .n8n-chat-header {
-    background-color: #ede9fe !important;
-    color: #4c1d95 !important;
-    font-weight: bold;
-    font-size: 18px;
-    border-radius: 1rem 1rem 0 0 !important;
-  }
+/* Scroll para el historial de chat */
+.n8n-chat-messages {
+  overflow-y: auto !important;
+  max-height: 360px !important;
+  padding: 0.5rem !important;
+}
 
-  /* Mensajes del bot */
-  .n8n-message.bot {
-    background-color: #4c1d95 !important;
-    color: white !important;
-    border-radius: 1rem !important;
-    padding: 8px 14px !important;
-    max-width: 80%;
-  }
+/* Mensajes del usuario */
+.n8n-message.user {
+  background-color: #6b21a8 !important;
+  color: white !important;
+  border-radius: 1rem !important;
+  padding: 8px 14px !important;
+  max-width: 75%;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
 
-  /* Mensajes del usuario */
-  .n8n-message.user {
-    background-color: #6b21a8 !important;
-    color: white !important;
-    border-radius: 1rem !important;
-    padding: 8px 14px !important;
-    max-width: 80%;
-  }
+/* Mensajes del bot */
+.n8n-message.bot {
+  background-color: #4c1d95 !important;
+  color: white !important;
+  border-radius: 1rem !important;
+  padding: 8px 14px !important;
+  max-width: 75%;
+  align-self: flex-start;
+  text-align: left;
+  margin-right: auto;
+}
 
-  /* Área de entrada */
-  .n8n-chat-input {
-    background-color: #ede9fe !important;
-    border-radius: 0 0 1rem 1rem !important;
-  }
+/* Encabezado del chat */
+.n8n-chat-header {
+  background-color: #ede9fe !important;
+  color: #4c1d95 !important;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 1rem 1rem 0 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
-  .n8n-chat-input input {
-    font-size: 16px !important;
-    color: #4c1d95 !important;
-  }
+.n8n-chat-header img {
+  width: 30px;
+  height: 30px;
+}
 
-  .n8n-chat-input input::placeholder {
-    color: #6b21a8 !important;
-  }
+/* Área de entrada */
+.n8n-chat-input {
+  background-color: #ede9fe !important;
+  border-radius: 0 0 1rem 1rem !important;
+}
 
-  /* Botón de enviar */
-  .n8n-chat-send-button {
-    background-color: #6b21a8 !important;
-    color: white !important;
-    border-radius: 9999px !important;
-  }
-    </style>
+.n8n-chat-input input {
+  font-size: 16px !important;
+  color: #4c1d95 !important;
+}
+
+.n8n-chat-input input::placeholder {
+  color: #6b21a8 !important;
+}
+
+.n8n-chat-send-button {
+  background-color: #6b21a8 !important;
+  color: white !important;
+  border-radius: 9999px !important;
+}
+</style>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
