@@ -120,8 +120,9 @@
 
     <!-- Estilos y script del chatbot de Dannza Bella -->
 <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-<script type="module">
+<!-- Sustituye tu bloque <script type="module"> por este actualizado --><script type="module">
   import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
   createChat({
     webhookUrl: 'https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat',
     webhookConfig: {
@@ -134,14 +135,14 @@
     chatSessionKey: 'sessionId',
     theme: {
       color: {
-        primary: '#6B21A8',       // Botón púrpura
-        background: '#F3E8FF',    // Fondo del chat, pastel lila
-        userMessage: '#6B21A8',   // Mensaje del usuario (burbujas)
-        botMessage: '#4C1D95',    // Mensaje del bot (burbujas)
-        header: '#EDE9FE',        // Encabezado
-        footer: '#EDE9FE'         // Pie de input
+        primary: '#6B21A8',
+        background: '#F3E8FF',
+        userMessage: '#6B21A8',
+        botMessage: '#4C1D95',
+        header: '#EDE9FE',
+        footer: '#EDE9FE'
       },
-      borderRadius: '1rem', // Esquinas redondeadas
+      borderRadius: '1rem',
       fontSize: '16px'
     },
     showWelcomeScreen: false,
@@ -150,22 +151,61 @@
       '¡Hola! Bienvenida/o a Dannza Bella.',
       'Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?'
     ],
-
-      i18n: {
-  es: {
-    title: `
-      <img src="logo.jpg" alt="Logo Dannza Bella" />
-      <span>Asistente Dannza Bella</span>
-    `,
-    subtitle: 'Estoy disponible para resolver tus dudas.',
-    footer: '',
-    getStarted: 'Nueva conversación',
-    inputPlaceholder: 'Escribe tu consulta…'
-  }
+    i18n: {
+      es: {
+        title: 'Asistente Dannza Bella',
+        subtitle: 'Estoy disponible para resolver tus dudas.',
+        footer: '',
+        getStarted: 'Nueva conversación',
+        inputPlaceholder: 'Escribe tu consulta…'
       }
-    }
+    },
+    customCss: `
+      .n8n-chat-window {
+        width: 360px !important;
+        height: 480px !important;
+        border-radius: 1rem !important;
+        overflow: hidden !important;
+      }
+      .n8n-chat-header {
+        background-color: #ede9fe !important;
+        color: #4c1d95 !important;
+        font-weight: bold !important;
+        font-size: 16px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px;
+        padding: 12px !important;
+      }
+      .n8n-message.user {
+        background-color: #6b21a8 !important;
+        color: white !important;
+        text-align: right !important;
+        margin-left: auto !important;
+      }
+      .n8n-message.bot {
+        background-color: #4c1d95 !important;
+        color: white !important;
+        text-align: left !important;
+        margin-right: auto !important;
+      }
+      .n8n-chat-input input {
+        font-size: 16px !important;
+        color: #4c1d95 !important;
+      }
+      .n8n-chat-input input::placeholder {
+        color: #6b21a8 !important;
+      }
+      .n8n-chat-send-button {
+        background-color: #6b21a8 !important;
+        color: white !important;
+      }
+    `
   });
 </script>
+
+<!-- Asegúrate de tener este contenedor visible --><div id="n8n-chat"></div>
 <div id="n8n-chat"></div>
     
 </body>
