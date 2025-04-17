@@ -124,7 +124,6 @@
   import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
   createChat({
-    launcher: true,
     webhookUrl: 'https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat',
     webhookConfig: {
       method: 'POST',
@@ -132,6 +131,7 @@
     },
     target: '#n8n-chat',
     mode: 'window',
+    launcher: true,
     chatInputKey: 'chatInput',
     chatSessionKey: 'sessionId',
     theme: {
