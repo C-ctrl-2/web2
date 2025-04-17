@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dannza Bella - Inicio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet">  <style>
-    /* Chatbot fijo en la esquina */
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />  <style>
     #n8n-chat {
       position: fixed;
       bottom: 1rem;
@@ -14,65 +13,9 @@
       height: 480px;
       z-index: 9999;
     }
-
-    /* Estilos internos personalizados */
-    .n8n-chat-window {
-      border-radius: 1rem !important;
-      overflow: hidden !important;
-    }
-
-    .n8n-message.user {
-      background-color: #6b21a8 !important;
-      color: white !important;
-      border-radius: 1rem !important;
-      padding: 8px 14px !important;
-      text-align: right !important;
-      margin-left: auto !important;
-      max-width: 75%;
-    }
-
-    .n8n-message.bot {
-      background-color: #4c1d95 !important;
-      color: white !important;
-      border-radius: 1rem !important;
-      padding: 8px 14px !important;
-      text-align: left !important;
-      margin-right: auto !important;
-      max-width: 75%;
-    }
-
-    .n8n-chat-header {
-      background-color: #ede9fe !important;
-      color: #4c1d95 !important;
-      font-weight: bold !important;
-      font-size: 16px !important;
-      padding: 12px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 10px;
-    }
-
-    .n8n-chat-input {
-      background-color: #ede9fe !important;
-    }
-
-    .n8n-chat-input input {
-      font-size: 16px !important;
-      color: #4c1d95 !important;
-    }
-
-    .n8n-chat-input input::placeholder {
-      color: #6b21a8 !important;
-    }
-
-    .n8n-chat-send-button {
-      background-color: #6b21a8 !important;
-      color: white !important;
-      border-radius: 9999px !important;
-    }
   </style></head>
-<body class="bg-pink-50 text-gray-800">  <nav class="bg-purple-800 text-white p-4 flex justify-between items-center">
+<body class="bg-pink-50 text-gray-800">
+  <nav class="bg-purple-800 text-white p-4 flex justify-between items-center">
     <div class="text-2xl font-bold">Dannza Bella</div>
     <ul class="flex space-x-4 text-lg">
       <li><a href="index.html" class="hover:underline">Inicio</a></li>
@@ -82,7 +25,7 @@
       <li><a href="eventos.html" class="hover:underline">Eventos</a></li>
     </ul>
   </nav>  <header class="text-center py-10">
-    <img src="logo.jpg" alt="Dannza Bella Logo" class="mx-auto w-32 mb-4">
+    <img src="logo.jpg" alt="Dannza Bella Logo" class="mx-auto w-32 mb-4" />
     <h1 class="text-4xl font-bold text-purple-800">Bienvenida a Dannza Bella</h1>
     <p class="mt-4 text-xl text-gray-700">
       Academia especializada en cursos de danza para todos los niveles y estilos.
@@ -111,6 +54,56 @@
         borderRadius: '1rem',
         fontSize: '16px'
       },
+      customCss: `
+        .n8n-chat-window {
+          border-radius: 1rem !important;
+          overflow: hidden !important;
+        }
+        .n8n-message.user {
+          background-color: #6b21a8 !important;
+          color: white !important;
+          border-radius: 1rem !important;
+          padding: 8px 14px !important;
+          text-align: right !important;
+          margin-left: auto !important;
+          max-width: 75%;
+        }
+        .n8n-message.bot {
+          background-color: #4c1d95 !important;
+          color: white !important;
+          border-radius: 1rem !important;
+          padding: 8px 14px !important;
+          text-align: left !important;
+          margin-right: auto !important;
+          max-width: 75%;
+        }
+        .n8n-chat-header {
+          background-color: #ede9fe !important;
+          color: #4c1d95 !important;
+          font-weight: bold !important;
+          font-size: 16px !important;
+          padding: 12px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 10px;
+        }
+        .n8n-chat-input {
+          background-color: #ede9fe !important;
+        }
+        .n8n-chat-input input {
+          font-size: 16px !important;
+          color: #4c1d95 !important;
+        }
+        .n8n-chat-input input::placeholder {
+          color: #6b21a8 !important;
+        }
+        .n8n-chat-send-button {
+          background-color: #6b21a8 !important;
+          color: white !important;
+          border-radius: 9999px !important;
+        }
+      `,
       showWelcomeScreen: false,
       defaultLanguage: 'es',
       initialMessages: [
