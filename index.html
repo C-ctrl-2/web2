@@ -1,244 +1,154 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dannza Bella - Inicio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-/* Contenedor general del chat */
-#n8n-chat {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  width: 360px;
-  height: 480px;
-  z-index: 9999;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  border-radius: 1rem;
-}
+  <!-- Estilos base de n8n -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
-/* Scroll para el historial de chat */
-.n8n-chat-messages {
-  overflow-y: auto !important;
-  max-height: 360px !important;
-  padding: 0.5rem !important;
-}
+  <!-- Estilos personalizados para el chatbot -->
+  <style>
+    #n8n-chat {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      width: 360px;
+      height: 480px;
+      z-index: 9999;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      border-radius: 1rem;
+    }
 
-/* Mensajes del usuario */
-.n8n-message.user {
-  background-color: #6b21a8 !important;
-  color: white !important;
-  border-radius: 1rem !important;
-  padding: 8px 14px !important;
-  max-width: 75%;
-  align-self: flex-end;
-  text-align: right;
-  margin-left: auto;
-}
+    .n8n-chat-messages {
+      overflow-y: auto !important;
+      max-height: 360px !important;
+      padding: 0.5rem !important;
+    }
 
-/* Mensajes del bot */
-.n8n-message.bot {
-  background-color: #4c1d95 !important;
-  color: white !important;
-  border-radius: 1rem !important;
-  padding: 8px 14px !important;
-  max-width: 75%;
-  align-self: flex-start;
-  text-align: left;
-  margin-right: auto;
-}
+    .n8n-message.user {
+      background-color: #6b21a8 !important;
+      color: white !important;
+      text-align: right !important;
+      margin-left: auto !important;
+      border-radius: 1rem !important;
+      padding: 8px 14px !important;
+      max-width: 75%;
+    }
 
-/* Encabezado del chat */
-.n8n-chat-header {
-  background-color: #ede9fe !important;
-  color: #4c1d95 !important;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 12px;
-  text-align: center;
-  border-radius: 1rem 1rem 0 0 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
+    .n8n-message.bot {
+      background-color: #4c1d95 !important;
+      color: white !important;
+      text-align: left !important;
+      margin-right: auto !important;
+      border-radius: 1rem !important;
+      padding: 8px 14px !important;
+      max-width: 75%;
+    }
 
-.n8n-chat-header img {
-  width: 30px;
-  height: 30px;
-}
+    .n8n-chat-header {
+      background-color: #ede9fe !important;
+      color: #4c1d95 !important;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 1rem 1rem 0 0 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
 
-/* Área de entrada */
-.n8n-chat-input {
-  background-color: #ede9fe !important;
-  border-radius: 0 0 1rem 1rem !important;
-}
+    .n8n-chat-input {
+      background-color: #ede9fe !important;
+    }
 
-.n8n-chat-input input {
-  font-size: 16px !important;
-  color: #4c1d95 !important;
-}
+    .n8n-chat-input input {
+      font-size: 16px !important;
+      color: #4c1d95 !important;
+    }
 
-.n8n-chat-input input::placeholder {
-  color: #6b21a8 !important;
-}
+    .n8n-chat-input input::placeholder {
+      color: #6b21a8 !important;
+    }
 
-.n8n-chat-send-button {
-  background-color: #6b21a8 !important;
-  color: white !important;
-  border-radius: 9999px !important;
-}
-</style>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dannza Bella - Inicio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    .n8n-chat-send-button {
+      background-color: #6b21a8 !important;
+      color: white !important;
+      border-radius: 9999px !important;
+    }
+  </style>
 </head>
+
 <body class="bg-pink-50 text-gray-800">
-    
-<nav class="bg-purple-800 text-white p-4 flex justify-between items-center">
+  <nav class="bg-purple-800 text-white p-4 flex justify-between items-center">
     <div class="text-2xl font-bold">Dannza Bella</div>
     <ul class="flex space-x-4 text-lg">
-        <li><a href="index.html" class="hover:underline">Inicio</a></li>
-        <li><a href="cursos.html" class="hover:underline">Cursos</a></li>
-        <li><a href="galeria.html" class="hover:underline">Galería</a></li>
-        <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
-        <li><a href="eventos.html" class="hover:underline">Eventos</a></li>
+      <li><a href="index.html" class="hover:underline">Inicio</a></li>
+      <li><a href="cursos.html" class="hover:underline">Cursos</a></li>
+      <li><a href="galeria.html" class="hover:underline">Galería</a></li>
+      <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
+      <li><a href="eventos.html" class="hover:underline">Eventos</a></li>
     </ul>
-</nav>
+  </nav>
 
-    <header class="text-center py-10">
-        <img src="logo.jpg" alt="Dannza Bella Logo" class="mx-auto w-32 mb-4">
-        <h1 class="text-4xl font-bold text-purple-800">Bienvenida a Dannza Bella</h1>
-        <p class="mt-4 text-xl text-gray-700">Academia especializada en cursos de danza para todos los niveles y estilos.</p>
-    </header>
-    
-<footer class="bg-purple-900 text-white text-center py-4 mt-10">
+  <header class="text-center py-10">
+    <img src="logo.jpg" alt="Dannza Bella Logo" class="mx-auto w-32 mb-4" />
+    <h1 class="text-4xl font-bold text-purple-800">Bienvenida a Dannza Bella</h1>
+    <p class="mt-4 text-xl text-gray-700">
+      Academia especializada en cursos de danza para todos los niveles y estilos.
+    </p>
+  </header>
+
+  <footer class="bg-purple-900 text-white text-center py-4 mt-10">
     &copy; 2025 Dannza Bella. Todos los derechos reservados.
-</footer>
+  </footer>
 
-    <!-- Estilos y script del chatbot de Dannza Bella -->
-<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-<!-- Sustituye tu bloque <script type="module"> por este actualizado --><script type="module">
+  <!-- Script del chatbot -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-<style>
-/* Posición y tamaño del chat */
-#n8n-chat {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  width: 360px;
-  height: 480px;
-  z-index: 9999;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  border-radius: 1rem;
-}
+    createChat({
+      webhookUrl: 'https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat',
+      webhookConfig: { method: 'POST', headers: {} },
+      target: '#n8n-chat',
+      mode: 'window',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      theme: {
+        color: {
+          primary: '#6B21A8',
+          background: '#F3E8FF',
+          userMessage: '#6B21A8',
+          botMessage: '#4C1D95',
+          header: '#EDE9FE',
+          footer: '#EDE9FE'
+        },
+        borderRadius: '1rem',
+        fontSize: '16px'
+      },
+      showWelcomeScreen: false,
+      defaultLanguage: 'es',
+      initialMessages: [
+        '¡Hola! Bienvenida/o a Dannza Bella.',
+        'Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?'
+      ],
+      i18n: {
+        es: {
+          title: 'Asistente Dannza Bella',
+          subtitle: 'Estoy disponible para resolver tus dudas.',
+          footer: '',
+          getStarted: 'Nueva conversación',
+          inputPlaceholder: 'Escribe tu consulta…'
+        }
+      }
+    });
+  </script>
 
-/* Scroll del historial */
-.n8n-chat-messages {
-  overflow-y: auto !important;
-  max-height: 360px !important;
-  padding: 0.5rem !important;
-}
-
-/* Mensajes */
-.n8n-message.user {
-  background-color: #6b21a8 !important;
-  color: white !important;
-  text-align: right !important;
-  margin-left: auto !important;
-}
-
-.n8n-message.bot {
-  background-color: #4c1d95 !important;
-  color: white !important;
-  text-align: left !important;
-  margin-right: auto !important;
-}
-
-/* Encabezado */
-.n8n-chat-header {
-  background-color: #ede9fe !important;
-  color: #4c1d95 !important;
-  font-weight: bold;
-  font-size: 16px;
-  padding: 12px;
-  border-radius: 1rem 1rem 0 0 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.n8n-chat-header img {
-  width: 30px;
-  height: 30px;
-}
-
-/* Entrada de texto */
-.n8n-chat-input {
-  background-color: #ede9fe !important;
-}
-
-.n8n-chat-input input {
-  font-size: 16px !important;
-  color: #4c1d95 !important;
-}
-
-.n8n-chat-input input::placeholder {
-  color: #6b21a8 !important;
-}
-
-.n8n-chat-send-button {
-  background-color: #6b21a8 !important;
-  color: white !important;
-  border-radius: 9999px !important;
-}
-</style>
-    
-  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-createChat({
-  webhookUrl: 'https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat',
-  webhookConfig: { method: 'POST', headers: {} },
-  target: '#n8n-chat',
-  mode: 'window',
-  chatInputKey: 'chatInput',
-  chatSessionKey: 'sessionId',
-  theme: {
-    color: {
-      primary: '#6B21A8',
-      background: '#F3E8FF',
-      userMessage: '#6B21A8',
-      botMessage: '#4C1D95',
-      header: '#EDE9FE',
-      footer: '#EDE9FE'
-    },
-    borderRadius: '1rem',
-    fontSize: '16px'
-  },
-  showWelcomeScreen: false,
-  defaultLanguage: 'es',
-  initialMessages: [
-    '¡Hola! Bienvenida/o a Dannza Bella.',
-    'Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?'
-  ],
-  i18n: {
-    es: {
-      title: 'Asistente Dannza Bella',
-      subtitle: 'Estoy disponible para resolver tus dudas.',
-      footer: '',
-      getStarted: 'Nueva conversación',
-      inputPlaceholder: 'Escribe tu consulta…'
-    }
-  }
-});
-  
-</script>
-
-<!-- Asegúrate de tener este contenedor visible -->
-<div id="n8n-chat"></div>
-    
+  <!-- Contenedor del chatbot -->
+  <div id="n8n-chat"></div>
 </body>
 </html>
