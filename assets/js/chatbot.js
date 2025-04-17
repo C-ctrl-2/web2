@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Crear botón
   const button = document.createElement("button");
   button.className = "chat-button";
   button.innerHTML = '<img src="icono_chat_dannza.png" alt="Abrir chat">';
   document.body.appendChild(button);
 
+  // Crear caja de chat
   const chatbox = document.createElement("div");
   chatbox.className = "chatbox";
   chatbox.id = "chatbox";
@@ -20,10 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
   document.body.appendChild(chatbox);
 
+  // Mostrar/ocultar chat
   button.addEventListener("click", () => {
     chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
   });
 
+  // Enviar mensaje al webhook
   window.sendMessage = async function () {
     const input = document.getElementById("userInput");
     const text = input.value.trim();
@@ -45,13 +49,18 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const res = await fetch("https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({ chatInput: text, sessionId: "cliente-web" })
       });
 
-      const data = await res.json();
+      const result = await res.clone().text();
+      console.log("Respuesta del servidor:", result);
+
       typing.remove();
 
+      const data = JSON.parse(result);
       const botMsg = document.createElement("div");
       botMsg.className = "message bot-message";
       botMsg.textContent = data.message || "Gracias por tu consulta.";
@@ -63,9 +72,11 @@ document.addEventListener("DOMContentLoaded", function () {
       errMsg.className = "message bot-message";
       errMsg.textContent = "Hubo un error. Intenta de nuevo.";
       messages.appendChild(errMsg);
+      console.error("Error:", err);
     }
   };
 
+  // Estilos del chatbot
   const style = document.createElement("style");
   style.innerHTML = `
     :root {
