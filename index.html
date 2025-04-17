@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,88 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dannza Bella - Inicio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-  <style>
-    :root {
-      --primary: #6B21A8;
-      --bot: #4C1D95;
-      --bg: #F3E8FF;
-      --header: #EDE9FE;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --primary: #a855f7;
-        --bot: #7c3aed;
-        --bg: #1e1b2e;
-        --header: #312e81;
-      }
-    }
-
-    #n8n-chat {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      z-index: 9999;
-    }
-
-    .n8n-chat-window {
-      border-radius: 1rem !important;
-      overflow: hidden !important;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-
-    .n8n-message.user {
-      background-color: var(--primary) !important;
-      color: white !important;
-      border-radius: 1rem !important;
-      padding: 8px 14px !important;
-      text-align: right !important;
-      margin-left: auto !important;
-      max-width: 75%;
-    }
-
-    .n8n-message.bot {
-      background-color: var(--bot) !important;
-      color: white !important;
-      border-radius: 1rem !important;
-      padding: 8px 14px !important;
-      text-align: left !important;
-      margin-right: auto !important;
-      max-width: 75%;
-    }
-
-    .n8n-chat-header {
-      background-color: var(--header) !important;
-      color: var(--bot) !important;
-      font-weight: bold !important;
-      font-size: 16px !important;
-      padding: 12px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 10px;
-    }
-
-    .n8n-chat-input {
-      background-color: var(--header) !important;
-    }
-
-    .n8n-chat-input input {
-      font-size: 16px !important;
-      color: var(--bot) !important;
-    }
-
-    .n8n-chat-input input::placeholder {
-      color: var(--primary) !important;
-    }
-
-    .n8n-chat-send-button {
-      background-color: var(--primary) !important;
-      color: white !important;
-      border-radius: 9999px !important;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-pink-50 text-gray-800">
@@ -105,38 +23,16 @@
   <header class="text-center py-10">
     <img src="logo.jpg" alt="Dannza Bella Logo" class="mx-auto w-32 mb-4" />
     <h1 class="text-4xl font-bold text-purple-800">Bienvenida a Dannza Bella</h1>
-    <p class="mt-4 text-xl text-gray-700">Academia especializada en cursos de danza para todos los niveles y estilos.</p>
+    <p class="mt-4 text-xl text-gray-700">
+      Academia especializada en cursos de danza para todos los niveles y estilos.
+    </p>
   </header>
 
   <footer class="bg-purple-900 text-white text-center py-4 mt-10">
     &copy; 2025 Dannza Bella. Todos los derechos reservados.
   </footer>
 
-  <div id="n8n-chat"></div>
-
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-    createChat({
-      webhookUrl: 'https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat',
-      webhookConfig: { method: 'POST', headers: {} },
-      target: '#n8n-chat',
-      mode: 'window',
-      chatInputKey: 'chatInput',
-      chatSessionKey: 'sessionId',
-      showWelcomeScreen: false,
-      defaultLanguage: 'es',
-      initialMessages: [
-        '¡Hola! Bienvenida/o a Dannza Bella.',
-        'Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?'
-      ],
-      i18n: {
-        es: {
-          title: 'Asistente Dannza Bella',
-          subtitle: 'Estoy disponible para resolver tus dudas.',
-          inputPlaceholder: 'Escribe tu consulta…'
-        }
-      }
-    });
-  </script>
+  <!-- Aquí insertamos el chatbot externo -->
+  <script src="chatbot_dannza.js"></script>
 </body>
 </html>
