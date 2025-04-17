@@ -6,125 +6,98 @@
   <title>Dannza Bella - Inicio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+  <style>
+    /* Aplicar estilos a elementos del DOM renderizado */
+    .n8n-message.user {
+      background-color: #6b21a8 !important;
+      color: white !important;
+      border-radius: 1rem !important;
+      text-align: right !important;
+      margin-left: auto !important;
+      max-width: 75%;
+    }
+
+    .n8n-message.bot {
+      background-color: #4c1d95 !important;
+      color: white !important;
+      border-radius: 1rem !important;
+      text-align: left !important;
+      margin-right: auto !important;
+      max-width: 75%;
+    }
+
+    .n8n-chat-header {
+      background-color: #ede9fe !important;
+      color: #4c1d95 !important;
+      font-weight: bold !important;
+      text-align: center !important;
+    }
+
+    .n8n-chat-input {
+      background-color: #ede9fe !important;
+    }
+
+    .n8n-chat-send-button {
+      background-color: #6b21a8 !important;
+      color: white !important;
+      border-radius: 9999px !important;
+    }
+
+    .n8n-chat-input input {
+      color: #4c1d95 !important;
+    }
+
+    .n8n-chat-input input::placeholder {
+      color: #6b21a8 !important;
+    }
+  </style>
 </head>
 
 <body class="bg-pink-50 text-gray-800">
-  <nav class="bg-purple-800 text-white p-4 flex justify-between items-center">
-    <div class="text-2xl font-bold">Dannza Bella</div>
-    <ul class="flex space-x-4 text-lg">
-      <li><a href="index.html" class="hover:underline">Inicio</a></li>
-      <li><a href="cursos.html" class="hover:underline">Cursos</a></li>
-      <li><a href="galeria.html" class="hover:underline">Galería</a></li>
-      <li><a href="contacto.html" class="hover:underline">Contacto</a></li>
-      <li><a href="eventos.html" class="hover:underline">Eventos</a></li>
-    </ul>
-  </nav>
 
-  <header class="text-center py-10">
-    <img src="logo.jpg" alt="Dannza Bella Logo" class="mx-auto w-32 mb-4" />
-    <h1 class="text-4xl font-bold text-purple-800">Bienvenida a Dannza Bella</h1>
-    <p class="mt-4 text-xl text-gray-700">
-      Academia especializada en cursos de danza para todos los niveles y estilos.
-    </p>
-  </header>
-
-  <footer class="bg-purple-900 text-white text-center py-4 mt-10">
-    &copy; 2025 Dannza Bella. Todos los derechos reservados.
-  </footer>
-
-  <!-- Contenedor del chatbot -->
+  <!-- tu contenido habitual -->
   <div id="n8n-chat"></div>
 
-  <!-- Script del chatbot -->
-  <script>
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.innerHTML = `
-      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  <!-- script final -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-      createChat({
-        webhookUrl: 'https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat',
-        webhookConfig: { method: 'POST', headers: {} },
-        target: '#n8n-chat',
-        mode: 'window',
-        chatInputKey: 'chatInput',
-        chatSessionKey: 'sessionId',
-        theme: {
-          color: {
-            primary: '#6B21A8',
-            background: '#F3E8FF',
-            userMessage: '#6B21A8',
-            botMessage: '#4C1D95',
-            header: '#EDE9FE',
-            footer: '#EDE9FE'
-          },
-          borderRadius: '1rem',
-          fontSize: '16px'
+    createChat({
+      webhookUrl: 'https://curso2025ov.app.n8n.cloud/webhook/b7cfa1db-852b-49f4-a6f2-09cf5659d372/chat',
+      webhookConfig: { method: 'POST' },
+      target: '#n8n-chat',
+      mode: 'window',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      theme: {
+        color: {
+          primary: '#6B21A8',
+          background: '#F3E8FF',
+          userMessage: '#6B21A8',
+          botMessage: '#4C1D95',
+          header: '#EDE9FE',
+          footer: '#EDE9FE'
         },
-        customCss: \`
-          .n8n-message.user {
-            background-color: #6b21a8 !important;
-            color: white !important;
-            border-radius: 1rem !important;
-            padding: 8px 14px !important;
-            text-align: right !important;
-            margin-left: auto !important;
-            max-width: 75%;
-          }
-          .n8n-message.bot {
-            background-color: #4c1d95 !important;
-            color: white !important;
-            border-radius: 1rem !important;
-            padding: 8px 14px !important;
-            text-align: left !important;
-            margin-right: auto !important;
-            max-width: 75%;
-          }
-          .n8n-chat-header {
-            background-color: #ede9fe !important;
-            color: #4c1d95 !important;
-            font-weight: bold !important;
-            font-size: 16px !important;
-            padding: 12px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 10px;
-          }
-          .n8n-chat-input {
-            background-color: #ede9fe !important;
-          }
-          .n8n-chat-input input {
-            font-size: 16px !important;
-            color: #4c1d95 !important;
-          }
-          .n8n-chat-input input::placeholder {
-            color: #6b21a8 !important;
-          }
-          .n8n-chat-send-button {
-            background-color: #6b21a8 !important;
-            color: white !important;
-            border-radius: 9999px !important;
-          }
-        \`,
-        showWelcomeScreen: false,
-        defaultLanguage: 'es',
-        initialMessages: [
-          '¡Hola! Bienvenida/o a Dannza Bella.',
-          'Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?'
-        ],
-        i18n: {
-          es: {
-            title: 'Asistente Dannza Bella',
-            subtitle: 'Estoy disponible para resolver tus dudas.',
-            footer: '',
-            getStarted: 'Nueva conversación',
-            inputPlaceholder: 'Escribe tu consulta…'
-          }
+        borderRadius: '1rem',
+        fontSize: '16px'
+      },
+      showWelcomeScreen: false,
+      defaultLanguage: 'es',
+      initialMessages: [
+        '¡Hola! Bienvenida/o a Dannza Bella.',
+        'Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?'
+      ],
+      i18n: {
+        es: {
+          title: 'Asistente Dannza Bella',
+          subtitle: 'Estoy disponible para resolver tus dudas.',
+          footer: '',
+          getStarted: 'Nueva conversación',
+          inputPlaceholder: 'Escribe tu consulta…'
         }
-      });
-    `;
-    document.body.appendChild(script);
+      }
+    });
   </script>
 </body>
 </html>
