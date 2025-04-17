@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     messages.scrollTop = messages.scrollHeight;
 
     try {
-      const res = await fetch("https://curso2025ov.app.n8n.cloud/webhook-test/chat", {
+      const res = await fetch("https://curso2025ov.app.n8n.cloud/webhook/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ chatInput: text, sessionId: "cliente-web" })
